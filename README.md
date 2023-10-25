@@ -17,8 +17,8 @@ laravel-hush is a Laravel package that allows you to disable the observers and h
 - [Usage](#usage)
     - [withoutObserver(string $observer, Closure $callback)](#withoutobserverstring-observer-closure-callback)
     - [withoutObservers(array $observers, Closure $callback)](#withoutobserversarray-observers-closure-callback)
-    - [withoutHandler(string $event, Closure $callback, array $classes)](#withouthandlerstring-event-closure-callback-array-classes)
-    - [withoutHandlers(array $events, Closure $callback, array $classes)](#withouthandlersarray-events-closure-callback-array-classes)
+    - [withoutHandler(string $event, Closure $callback, array $classes = [])](#withouthandlerstring-event-closure-callback-array-classes)
+    - [withoutHandlers(array $events, Closure $callback, array $classes = [])](#withouthandlersarray-events-closure-callback-array-classes)
 - [Credits](#credits)
 - [License](#license)
 - [Security Vulnerabilities](#security-vulnerabilities)
@@ -67,7 +67,7 @@ User::withoutObservers([UserObserver::class, ExpirableObserver::class], function
 });
 ```
 
-### withoutHandler(string $event, Closure $callback, array $classes)
+### withoutHandler(string $event, Closure $callback, array $classes = [])
 
 This method will disable handlers for the provided event during the execution of the callback.
 
@@ -91,7 +91,7 @@ User::withoutHandler('created', function () {
 }, [User::class]);
 ```
 
-### withoutHandlers(array $events, Closure $callback, array $classes)
+### withoutHandlers(array $events, Closure $callback, array $classes = [])
 
 This method is the same as `withoutHandler()` but allows you to pass in an array of events to disable handlers for.
 
