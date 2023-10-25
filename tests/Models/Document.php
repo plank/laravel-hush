@@ -10,8 +10,8 @@ use Plank\LaravelHush\Tests\Observers\DocumentObserver;
 
 class Document extends Model
 {
-    use HushesHandlers;
     use HasFactory;
+    use HushesHandlers;
 
     protected $guarded = [];
 
@@ -31,7 +31,7 @@ class Document extends Model
         parent::boot();
 
         static::observe(DocumentObserver::class);
-        
+
         static::deleting(function () {
             throw new \Exception('deleting');
         });

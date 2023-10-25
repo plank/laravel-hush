@@ -16,7 +16,7 @@ trait HushesHandlers
      * Disable a specific Model Observer during the execution of a callback. You can also
      * pass in a class name where observers have been registered on the model statically.
      *
-     * @param class-string $class
+     * @param  class-string  $class
      * @return mixed
      */
     public static function withoutObserver(string $class, Closure $callback)
@@ -28,7 +28,7 @@ trait HushesHandlers
      * Disable an array of Model Observers during the execution of a callback. You can also
      * pass in a class name where observers have been registered on the model statically.
      *
-     * @param array<class-string> $classes
+     * @param  array<class-string>  $classes
      * @return mixed
      */
     public static function withoutObservers(array $classes, Closure $callback)
@@ -76,8 +76,8 @@ trait HushesHandlers
     /**
      * Mute a specific observable model event. You can also pass in class names of specific
      * observers or a classes where handlers have been registered on the model statically.
-     * 
-     * @param array<class-string> $classes
+     *
+     * @param  array<class-string>  $classes
      * @return mixed
      */
     public static function withoutHandler(string $event, Closure $callback, array $classes = [])
@@ -88,9 +88,9 @@ trait HushesHandlers
     /**
      * Mute specific observable model events. You can also pass in class names of specific
      * observers or a classes where handlers have been registered on the model statically.
-     * 
-     * @param array<string> $events
-     * @param array<class-string> $classes
+     *
+     * @param  array<string>  $events
+     * @param  array<class-string>  $classes
      * @return mixed
      */
     public static function withoutHandlers(array $events, Closure $callback, array $classes = [])

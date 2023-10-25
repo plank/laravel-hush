@@ -11,8 +11,8 @@ use Plank\LaravelHush\Tests\Observers\UserObserver;
 
 class User extends Authenticatable
 {
-    use HushesHandlers;
     use HasFactory;
+    use HushesHandlers;
 
     /**
      * Create a new factory instance for the model.
