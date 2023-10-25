@@ -15,6 +15,10 @@ laravel-hush is a Laravel package that allows you to disable the observers and h
 
 - [Installation](#installation)
 - [Usage](#usage)
+    - [withoutObserver(string $observer, Closure $callback)](#withoutobserverstring-observer-closure-callback)
+    - [withoutObservers(array $observers, Closure $callback)](#withoutobserversarray-observers-closure-callback)
+    - [withoutHandler(string $event, Closure $callback, array $classes)](#withouthandlerstring-event-closure-callback-array-classes)
+    - [withoutHandlers(array $events, Closure $callback, array $classes)](#withouthandlersarray-events-closure-callback-array-classes)
 - [Credits](#credits)
 - [License](#license)
 - [Security Vulnerabilities](#security-vulnerabilities)
