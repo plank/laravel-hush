@@ -6,13 +6,15 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    public function up()
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
     {
-        Schema::create('migration_table_name_table', function (Blueprint $table) {
+        Schema::create('documents', function (Blueprint $table) {
             $table->id();
-
-            // add fields
-
+            $table->string('title');
+            $table->text('body');
             $table->timestamps();
         });
     }
