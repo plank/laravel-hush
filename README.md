@@ -113,3 +113,15 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 ## Security Vulnerabilities
 
 If you discover a security vulnerability within siren, please send an e-mail to [security@plankdesign.com](mailto:security@plankdesign.com). All security vulnerabilities will be promptly addressed.
+
+&nbsp;
+
+## Check Us Out!
+
+<a href="https://plank.co/open-source/learn-more-image">
+    <img src="https://plank.co/open-source/banner">
+</a>
+
+&nbsp;
+
+Plank focuses on impactful solutions that deliver engaging experiences to our clients and their users. We're committed to innovation, inclusivity, and sustainability in the digital space. [Learn more](https://plank.co/open-source/learn-more-link) about our mission to improve the web.
