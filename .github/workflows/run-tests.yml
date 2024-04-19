@@ -9,16 +9,47 @@ jobs:
       fail-fast: true
       matrix:
         include:
-          - os: [ubuntu-latest]
-            php: [8.2, 8.3]
+          - os: ubuntu-latest
+            php: 8.2
             laravel: ^10
             testbench: ^8
-            stability: [prefer-lowest, prefer-stable]
-          - os: [ubuntu-latest]
-            php: [8.2, 8.3]
+            stability: prefer-lowest
+          - os: ubuntu-latest
+            php: 8.2
+            laravel: ^10
+            testbench: ^8
+            stability: prefer-stable
+          - os: ubuntu-latest
+            php: 8.2
             laravel: ^11
             testbench: ^9
-            stability: [prefer-lowest, prefer-stable]
+            stability: prefer-lowest
+          - os: ubuntu-latest
+            php: 8.2
+            laravel: ^11
+            testbench: ^9
+            stability: prefer-stable
+          - os: ubuntu-latest
+            php: 8.3
+            laravel: ^10
+            testbench: ^8
+            stability: prefer-lowest
+          - os: ubuntu-latest
+            php: 8.3
+            laravel: ^10
+            testbench: ^8
+            stability: prefer-stable
+          - os: ubuntu-latest
+            php: 8.3
+            laravel: ^11
+            testbench: ^9
+            stability: prefer-lowest
+          - os: ubuntu-latest
+            php: 8.3
+            laravel: ^11
+            testbench: ^9
+            stability: prefer-stable
+          
 
     name: P${{ matrix.php }} - ${{ matrix.stability }} - ${{ matrix.os }} - Laravel ${{ matrix.laravel }}
 
