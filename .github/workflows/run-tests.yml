@@ -12,41 +12,49 @@ jobs:
           - os: ubuntu-latest
             php: 8.2
             laravel: ^10
+            collision: ^7
             testbench: ^8
             stability: prefer-lowest
           - os: ubuntu-latest
             php: 8.2
             laravel: ^10
+            collision: ^7
             testbench: ^8
             stability: prefer-stable
           - os: ubuntu-latest
             php: 8.2
             laravel: ^11
+            collision: ^8
             testbench: ^9
             stability: prefer-lowest
           - os: ubuntu-latest
             php: 8.2
             laravel: ^11
+            collision: ^8
             testbench: ^9
             stability: prefer-stable
           - os: ubuntu-latest
             php: 8.3
             laravel: ^10
+            collision: ^7
             testbench: ^8
             stability: prefer-lowest
           - os: ubuntu-latest
             php: 8.3
             laravel: ^10
+            collision: ^7
             testbench: ^8
             stability: prefer-stable
           - os: ubuntu-latest
             php: 8.3
             laravel: ^11
+            collision: ^8
             testbench: ^9
             stability: prefer-lowest
           - os: ubuntu-latest
             php: 8.3
             laravel: ^11
+            collision: ^8
             testbench: ^9
             stability: prefer-stable
           
@@ -79,6 +87,7 @@ jobs:
       run: |
         composer require "illuminate/contracts:${{ matrix.laravel }}" --no-interaction --no-update
         composer require --dev "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
+        composer require --dev "nunomaduro/collision:${{ matrix.collision }}" --no-interaction --no-update
         composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
     - name: Execute tests
