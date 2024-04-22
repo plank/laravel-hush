@@ -52,11 +52,10 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        include:
-          - os: [ubuntu-latest]
-            php: [8.3]
-            laravel: ^11
-            stability: [prefer-stable]
+        os: [ubuntu-latest]
+        php: [8.3]
+        laravel: [^11]
+        stability: [prefer-stable]
 
     steps:
     - name: Checkout code
