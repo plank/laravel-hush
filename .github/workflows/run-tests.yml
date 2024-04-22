@@ -8,55 +8,10 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        include:
-          - os: ubuntu-latest
-            php: 8.2
-            laravel: ^10
-            collision: ^7
-            testbench: ^8
-            stability: prefer-lowest
-          - os: ubuntu-latest
-            php: 8.2
-            laravel: ^10
-            collision: ^7
-            testbench: ^8
-            stability: prefer-stable
-          - os: ubuntu-latest
-            php: 8.2
-            laravel: ^11
-            collision: ^8
-            testbench: ^9
-            stability: prefer-lowest
-          - os: ubuntu-latest
-            php: 8.2
-            laravel: ^11
-            collision: ^8
-            testbench: ^9
-            stability: prefer-stable
-          - os: ubuntu-latest
-            php: 8.3
-            laravel: ^10
-            collision: ^7
-            testbench: ^8
-            stability: prefer-lowest
-          - os: ubuntu-latest
-            php: 8.3
-            laravel: ^10
-            collision: ^7
-            testbench: ^8
-            stability: prefer-stable
-          - os: ubuntu-latest
-            php: 8.3
-            laravel: ^11
-            collision: ^8
-            testbench: ^9
-            stability: prefer-lowest
-          - os: ubuntu-latest
-            php: 8.3
-            laravel: ^11
-            collision: ^8
-            testbench: ^9
-            stability: prefer-stable
+        os: [ubuntu-latest]
+        php: [8.2, 8.3]
+        laravel: [^10, ^11]
+        stability: [prefer-lowest, prefer-stable]
           
 
     name: P${{ matrix.php }} - ${{ matrix.stability }} - ${{ matrix.os }} - Laravel ${{ matrix.laravel }}
@@ -84,11 +39,7 @@ jobs:
         echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
     - name: Install dependencies
-      run: |
-        composer require "illuminate/contracts:${{ matrix.laravel }}" --no-interaction --no-update
-        composer require --dev "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
-        composer require --dev "nunomaduro/collision:${{ matrix.collision }}" --no-interaction --no-update
-        composer update --${{ matrix.stability }} --prefer-dist --no-interaction
+      run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
     - name: Execute tests
       run: vendor/bin/pest
