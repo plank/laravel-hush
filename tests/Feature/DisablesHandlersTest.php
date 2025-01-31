@@ -1,5 +1,7 @@
 <?php
 
+use Plank\LaravelHush\Tests\Models\Concerns\HasEventHandlersInTrait;
+use Plank\LaravelHush\Tests\Models\Post;
 use Plank\LaravelHush\Tests\Models\User;
 use Plank\LaravelHush\Tests\Observers\UserObserver;
 
@@ -30,6 +32,30 @@ it('can disable observer handlers for a specific event and doesnt throw a deleti
 
     expect(User::query()->count())->toBe(0);
 });
+
+it('can disable handlers for a specific event and trait and doesnt throw a deleting exception as a result', function () {
+    $post = Post::withoutEvents(function () {
+        return Post::factory()->create();
+    });
+
+    expect($post)->not->toBeNull();
+
+    Post::withoutHandler('deleting', fn () => $post->delete(), [HasEventHandlersInTrait::class]);
+
+    expect(Post::query()->count())->toBe(0);
+});
+
+it('throws a deleting exception when a traits handler is not disabled', function () {
+    $post = Post::withoutEvents(function () {
+        return Post::factory()->create();
+    });
+
+    expect($post)->not->toBeNull();
+
+    $post->delete();
+
+    expect(Post::query()->count())->toBe(0);
+})->throws('deleting in trait');
 
 it('restores the handlers once the closure has completed executions', function () {
     User::withoutHandlers(['saving', 'creating'], function () {
