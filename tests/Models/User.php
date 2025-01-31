@@ -44,15 +44,6 @@ class User extends Authenticatable
         'password',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'password' => 'hashed',
-    ];
-
     public static function boot()
     {
         parent::boot();

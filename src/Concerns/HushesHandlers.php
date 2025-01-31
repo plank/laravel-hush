@@ -143,13 +143,34 @@ trait HushesHandlers
             }
 
             if (is_callable($handler)) {
-                $refl = new ReflectionFunction($handler);
-                $class = $refl->getClosureScopeClass();
+                $class = static::namespacedName($handler);
 
-                return $class === null || ! str($class->getName())->contains($classes);
+                return $class === null
+                    || ! str($class)->contains($classes);
             }
 
             return true;
         });
+    }
+
+    /**
+     * @return class-string
+     */
+    protected static function namespacedName($handler): ?string
+    {
+        $refl = new ReflectionFunction($handler);
+        $namespace = $refl->getNamespaceName();
+
+        if ($namespace === null) {
+            return null;
+        }
+
+        $filename = basename($refl->getFileName());
+
+        if ($filename === null) {
+            return null;
+        }
+
+        return $namespace.'\\'.str($filename)->beforeLast('.');
     }
 }
