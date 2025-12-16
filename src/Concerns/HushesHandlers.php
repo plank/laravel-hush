@@ -161,6 +161,10 @@ trait HushesHandlers
         $refl = new ReflectionFunction($handler);
         $namespace = $refl->getNamespaceName();
 
+        if (empty($namespace) && $class = str($refl->getName())->match('/closure:([a-z0-9\\\\]+)::/i')) {
+            return $class;
+        }
+
         if ($namespace === null) {
             return null;
         }
