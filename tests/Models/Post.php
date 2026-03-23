@@ -2,6 +2,7 @@
 
 namespace Plank\LaravelHush\Tests\Models;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Plank\LaravelHush\Concerns\HushesHandlers;
@@ -19,7 +20,7 @@ class Post extends Model
     /**
      * Create a new factory instance for the model.
      *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory<static>
+     * @return Factory<static>
      */
     protected static function newFactory()
     {
