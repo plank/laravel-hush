@@ -4,12 +4,14 @@ namespace Plank\LaravelHush\Tests\Models;
 
 use Exception;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Plank\LaravelHush\Concerns\HushesHandlers;
 use Plank\LaravelHush\Tests\Database\Factories\UserFactory;
 use Plank\LaravelHush\Tests\Observers\UserObserver;
 
+#[ObservedBy(UserObserver::class)]
 class User extends Authenticatable
 {
     use HasFactory;
@@ -56,7 +58,5 @@ class User extends Authenticatable
         static::saving(function () {
             throw new Exception('saving');
         });
-
-        static::observe(UserObserver::class);
     }
 }
