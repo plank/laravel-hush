@@ -3,8 +3,6 @@
 <p align="center">
 <a href="https://packagist.org/packages/plank/laravel-hush"><img src="https://img.shields.io/packagist/php-v/plank/laravel-hush?color=%23fae370&label=php&logo=php&logoColor=%23fff" alt="PHP Version Support"></a>
 <a href="https://github.com/plank/laravel-hush/actions?query=workflow%3Arun-tests"><img src="https://img.shields.io/github/actions/workflow/status/plank/laravel-hush/run-tests.yml?branch=main&&color=%23bfc9bd&label=run-tests&logo=github&logoColor=%23fff" alt="GitHub Workflow Status"></a>
-<a href="https://codeclimate.com/github/plank/laravel-hush/test_coverage"><img src="https://img.shields.io/codeclimate/coverage/plank/laravel-hush?color=%23ff9376&label=test%20coverage&logo=code-climate&logoColor=%23fff" /></a>
-<a href="https://codeclimate.com/github/plank/laravel-hush/maintainability"><img src="https://img.shields.io/codeclimate/maintainability/plank/laravel-hush?color=%23528cff&label=maintainablility&logo=code-climate&logoColor=%23fff" /></a>
 </p>
 
 # Laravel Hush
