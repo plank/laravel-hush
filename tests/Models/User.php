@@ -3,8 +3,8 @@
 namespace Plank\LaravelHush\Tests\Models;
 
 use Exception;
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Plank\LaravelHush\Concerns\HushesHandlers;
