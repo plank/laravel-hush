@@ -2,12 +2,14 @@
 
 namespace Plank\LaravelHush\Tests\Models;
 
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Plank\LaravelHush\Concerns\HushesHandlers;
 use Plank\LaravelHush\Tests\Database\Factories\DocumentFactory;
 use Plank\LaravelHush\Tests\Observers\DocumentObserver;
 
+#[ObservedBy(DocumentObserver::class)]
 class Document extends Model
 {
     use HasFactory;
@@ -25,12 +27,9 @@ class Document extends Model
         return DocumentFactory::new();
     }
 
-    // Add the document observer
     public static function boot()
     {
         parent::boot();
-
-        static::observe(DocumentObserver::class);
 
         static::deleting(function () {
             throw new \Exception('deleting');
