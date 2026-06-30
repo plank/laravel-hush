@@ -158,6 +158,16 @@ trait HushesHandlers
      */
     protected static function namespacedName($handler): ?string
     {
+        if (is_array($handler)) {
+            $target = $handler[0] ?? null;
+
+            return match (true) {
+                is_object($target) => $target::class,
+                is_string($target) => $target,
+                default => null,
+            };
+        }
+
         $refl = new ReflectionFunction($handler);
         $namespace = $refl->getNamespaceName();
 
